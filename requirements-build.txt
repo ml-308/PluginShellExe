@@ -1,0 +1,2 @@
+# 仅构建单文件 exe 时需要
+pyinstaller>=6.11

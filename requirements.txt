@@ -1,0 +1,3 @@
+# 运行时依赖：只有 GUI 需要。内核、CLI、自动化测试是零依赖纯 Python。
+# 只用 Essentials（QtCore/QtGui/QtWidgets），刻意不引入 QtWebEngine —— 本项目不使用 Web 技术。
+PySide6-Essentials>=6.8

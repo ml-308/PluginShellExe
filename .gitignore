@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.venv/
+
+# PyInstaller 中间产物与打包结果（exe 作为 Release 资产分发，不入库）
+build/
+dist/
+*.spec
+plugins/*/
+!plugins/README.md
+plugins/.exe-state.json
+
+# 构建/验收用的本地临时目录
+.tmp/

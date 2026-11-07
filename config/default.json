@@ -1,0 +1,8 @@
+{
+  "plugins_dir": null,
+  "auto_adopt": true,
+  "single_instance": true,
+  "log_level": "INFO",
+  "window_width": 1000,
+  "window_height": 680
+}
