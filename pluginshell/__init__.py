@@ -10,7 +10,7 @@
     kernel/ + sdk/   插件运行时与插件契约（Py 插件必须由 CPython 承载）
 """
 APP_NAME = "PluginShellExe"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.2.0"
 PROTOCOL_API = "1.0"
 ORG_NAME = "ml-308"
 

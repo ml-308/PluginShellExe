@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from .. import APP_NAME
+from .. import APP_NAME, update_check
 from ..domain.models import ContributionView
 from .about_dialog import AboutDialog
 from .plugin_manager_dialog import PluginManagerDialog
@@ -67,6 +67,7 @@ class MainWindow(QMainWindow):
             ("插件管理…", self._open_manager),
             ("刷新", self._render),
             ("打开插件目录", self._open_plugins_dir),
+            ("检查更新…", self._check_update),
             ("关于", self._open_about),
         ):
             action = QAction(text, self)
@@ -103,6 +104,9 @@ class MainWindow(QMainWindow):
                 self._active_category = ALL_CATEGORIES
         self._nav.setCurrentRow(target_row)
         self._nav.blockSignals(False)
+
+    def _check_update(self) -> None:
+        update_check.check_now(self)
 
     def _on_category_changed(self, current, _previous) -> None:
         if current is None:

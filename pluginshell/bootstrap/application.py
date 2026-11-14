@@ -63,6 +63,14 @@ class Application:
 
     # ------------------------------------------------------------------
     def run(self) -> int:
+        # 「发现新版本」检查：命令行开关 + 无人值守 probe（不依赖 Qt）
+        from .. import update_check
+
+        update_check.configure(self._argv)
+        probe_exit = update_check.try_probe(self._argv)
+        if probe_exit is not None:
+            return probe_exit
+
         try:
             command = parse(self._argv)
         except SystemExit as exc:  # --help / 参数错误
@@ -208,6 +216,10 @@ class Application:
 
         window = MainWindow(self._service, plugins_source=self._source, config=config)
         window.show()
+
+        from .. import update_check
+
+        update_check.schedule_auto_check(window)
         try:
             return app.exec()
         finally:
